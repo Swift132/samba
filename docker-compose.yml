@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  samba:
+    build: ./samba
+    tty: true
+    container_name: samba
