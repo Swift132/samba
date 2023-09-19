@@ -1,7 +1,16 @@
-version: "3.9"
+version: "3"
+
+networks:
+  FO:
 
 services:
   samba:
     build: ./samba
     tty: true
     container_name: samba
+    networks:
+      - FO
+    volumes:
+      - ./private:/var/samba/private
+      - ./public:/var/samba/public
+      - ./cfg:/etc
