@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": "*.conf",
+      "options": {
+        "prettier": false
+      }
+    }
+  ]
+}
