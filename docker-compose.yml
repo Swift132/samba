@@ -1,16 +1,15 @@
 version: "3"
-
-networks:
-  FO:
-
 services:
   samba:
-    build: ./samba
+    image: dperson/samba
     tty: true
     container_name: samba
-    networks:
-      - FO
+    environment:
+      - TZ=EST5EDT
+    ports:
+      - 139:139
+      - 445:445
+    command: '-s "Mount;/mnt" -s "xpto volume;/mnt2;yes;no;no;xpto" -u "xpto;bobspasswd" -p'
     volumes:
-      - ./private:/var/samba/private
-      - ./public:/var/samba/public
-      - ./cfg:/etc
+      - ./private:/mnt2:z
+      - ./public:/mnt:z
